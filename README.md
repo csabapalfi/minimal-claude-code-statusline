@@ -2,6 +2,8 @@
 
 A minimal, pace-aware status line for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Shows model, context window, and API quota usage in a few characters.
 
+Designed to stay out of your way — everything is gray and quiet when things are fine. You'll only notice it when a bar turns yellow or red, which is exactly when you need to.
+
 ```
 opus ▃ ▄▃
 │    │ ││
