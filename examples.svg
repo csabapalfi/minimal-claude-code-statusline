@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="360" font-family="Menlo,Consolas,monospace" font-size="20">
+  <rect width="820" height="360" rx="10" fill="#1e1e1e"/>
+
+  <text x="24" y="44" fill="#555" font-size="15">5-HOUR WINDOW</text>
+  <text x="24" y="80">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#888"> ▄</tspan><tspan fill="#888">▃</tspan>
+    <tspan fill="#555" font-size="16">  all good</tspan>
+  </text>
+  <text x="24" y="118">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#f44"> ▂</tspan><tspan fill="#888">▃</tspan>
+    <tspan fill="#555" font-size="16">  only 20% used but 4h left — on track to hit the limit</tspan>
+  </text>
+  <text x="24" y="156">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#888"> ▇</tspan><tspan fill="#888">▃</tspan>
+    <tspan fill="#555" font-size="16">  80% used but resets in 40 min — will be fine</tspan>
+  </text>
+
+  <text x="24" y="214" fill="#555" font-size="15">7-DAY WINDOW (same logic)</text>
+  <text x="24" y="250">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#888"> ▄</tspan><tspan fill="#fc0">▂</tspan>
+    <tspan fill="#555" font-size="16">  only 15% used but 6 days left — ahead of pace</tspan>
+  </text>
+  <text x="24" y="288">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#888"> ▄</tspan><tspan fill="#888">▇</tspan>
+    <tspan fill="#555" font-size="16">  85% used but resets tomorrow — will be fine</tspan>
+  </text>
+</svg>

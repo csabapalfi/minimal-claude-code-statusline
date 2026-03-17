@@ -1,6 +1,6 @@
-# claude-code-statusline
+# minimal-claude-code-statusline
 
-A pace-aware statusline for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that shows model, context window usage, and API quota utilization — all in a few characters.
+A minimal, pace-aware status line for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Shows model, context window, and API quota usage in a few characters.
 
 ```
 opus ▃ ▄▃
@@ -12,57 +12,48 @@ opus ▃ ▄▃
 └───────── model name
 ```
 
-## What it looks like
+## Examples
 
-| Statusline | Meaning |
-|---|---|
-| `opus ▃ ▁▁` | Context 30% used. Both quotas low and on pace. |
-| `opus ▃ ▄▃` | Context 30%. Quotas ~40% used but on pace (gray = fine). |
-| `opus ▆ ▅▃` | Context 70%. 5h at 50% and burning fast (yellow = ahead of pace). |
-| `opus ▇ ▇▆` | Context 80%+. Both quotas high and way ahead of pace (red = slow down). |
+<img src="examples.png" width="580">
 
 ## Colors
 
-**Context window** — absolute thresholds (it's a finite window, not a rate):
-- Gray: < 50%
-- Yellow: 50-79%
-- Red: 80%+
+**Context window** — absolute thresholds (finite window, not a rate):
 
-**5-hour and 7-day quotas** — pace-aware (are you burning faster than the window refills?):
-- Gray: on pace or within 10% (you'll fit)
-- Yellow: 11-30% ahead of pace (watch it)
-- Red: >30% ahead of pace (slow down or you'll hit the limit)
+| Usage | Color | Meaning |
+|-------|-------|---------|
+| < 50% | gray | Plenty of room |
+| 50-79% | yellow | Getting full |
+| 80%+ | red | Almost out |
 
-Bar height always shows absolute utilization so you can see how full the bucket is regardless of pace.
-
-## How pace works
-
-Instead of coloring by raw utilization (which would always look alarming late in a window), the script computes:
+**5-hour and 7-day quotas** — pace-aware coloring on absolute height:
 
 ```
-elapsed_pct = time elapsed in current window / window duration
-pace_delta  = utilization - elapsed_pct
+pace_delta = utilization% - elapsed% of current window
 ```
 
-60% used with 80% of the window elapsed? Delta is -20 — gray, you're fine.
-60% used with 20% elapsed? Delta is +40 — red, you're burning too fast.
+| Pace delta | Color | Meaning |
+|------------|-------|---------|
+| ≤ 10% | gray | On pace, you'll fit |
+| 11-30% | yellow | Ahead of pace, watch it |
+| > 30% | red | Way ahead, slow down |
+
+Bar height always shows absolute utilization. A tall gray bar means "almost full but resetting soon". A tall red bar means "almost full AND burning too fast".
 
 ## Requirements
 
-- macOS (uses `security` for keychain access, `date -jf` for timestamp parsing, `stat -f%m` for file age)
+- macOS (uses Keychain, `date -jf`, `stat -f%m`)
 - `jq` and `curl`
-- Claude Code with OAuth login (the script reads the token from macOS Keychain)
+- Claude Code with OAuth login
 
 ## Install
-
-1. Copy the script somewhere:
 
 ```bash
 cp statusline.sh ~/.claude/statusline.sh
 chmod +x ~/.claude/statusline.sh
 ```
 
-2. Configure Claude Code (`~/.claude/settings.json`):
+Add to `~/.claude/settings.json`:
 
 ```json
 {
@@ -73,7 +64,7 @@ chmod +x ~/.claude/statusline.sh
 }
 ```
 
-3. Restart Claude Code. The statusline appears at the bottom of the terminal.
+Restart Claude Code.
 
 ## How it works
 
@@ -81,9 +72,7 @@ chmod +x ~/.claude/statusline.sh
 2. The script fetches quota data from `api.anthropic.com/api/oauth/usage`, cached for 5 minutes at `~/.cache/claude-usage.json`.
 3. The OAuth token is read from macOS Keychain (`Claude Code-credentials`).
 
-## Cache staleness
-
-Quota data is cached for 5 minutes to avoid hammering the API. This means a burst of parallel agents can burn through quota before the statusline updates. The absolute bar height helps here — if you see tall bars, tread carefully even if they're gray.
+The 5-minute cache means a burst of parallel agents can burn through quota before the statusline updates. The absolute bar height helps — if you see tall bars, tread carefully even if they're gray.
 
 ## License
 
