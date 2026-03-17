@@ -20,9 +20,9 @@ input=$(cat)
 PCT=$(echo "$input" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)
 MODEL=$(echo "$input" | jq -r '.model.id // ""' | sed 's/claude-//;s/-[0-9].*//;s/-latest//')
 
-# Usage quota (cached 5 min)
+# Usage quota (cached 1 min)
 CACHE="$HOME/.cache/claude-usage.json"
-if [ ! -f "$CACHE" ] || [ $(($(date +%s) - $(stat -f%m "$CACHE"))) -gt 300 ]; then
+if [ ! -f "$CACHE" ] || [ $(($(date +%s) - $(stat -f%m "$CACHE"))) -gt 60 ]; then
     TOKEN=$(security find-generic-password -s "Claude Code-credentials" -w 2>/dev/null \
         | jq -r '.claudeAiOauth.accessToken // empty')
     [ -n "$TOKEN" ] && curl -sf "https://api.anthropic.com/api/oauth/usage" \

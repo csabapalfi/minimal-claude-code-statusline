@@ -69,10 +69,10 @@ Restart Claude Code.
 ## How it works
 
 1. Claude Code pipes JSON to the script on each render (contains `model.id` and `context_window.used_percentage`).
-2. The script fetches quota data from `api.anthropic.com/api/oauth/usage`, cached for 5 minutes at `~/.cache/claude-usage.json`.
+2. The script fetches quota data from `api.anthropic.com/api/oauth/usage`, cached for 1 minute at `~/.cache/claude-usage.json`.
 3. The OAuth token is read from macOS Keychain (`Claude Code-credentials`).
 
-The 5-minute cache means a burst of parallel agents can burn through quota before the statusline updates. The absolute bar height helps — if you see tall bars, tread carefully even if they're gray.
+The 1-minute cache means a burst of parallel agents can burn through quota before the statusline updates. The absolute bar height helps — if you see tall bars, tread carefully even if they're gray.
 
 ## License
 
