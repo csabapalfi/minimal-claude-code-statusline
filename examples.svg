@@ -5,28 +5,28 @@
   <text x="24" y="80">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▄</tspan><tspan fill="#888">▃</tspan>
-    <tspan fill="#555" font-size="16">  all good</tspan>
+    <tspan fill="#555" font-size="16">  40% used, 2 out of 5 hours left — fits at this rate</tspan>
   </text>
   <text x="24" y="118">
     <tspan fill="#888">opus ▃</tspan>
-    <tspan fill="#f44"> ▄</tspan><tspan fill="#888">▃</tspan>
-    <tspan fill="#555" font-size="16">  40% used only 10 min in — will hit the limit at this rate</tspan>
+    <tspan fill="#f44"> ▅</tspan><tspan fill="#888">▃</tspan>
+    <tspan fill="#555" font-size="16">  60% used, 4 out of 5 hours left — would hit limit at this rate</tspan>
   </text>
   <text x="24" y="156">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▇</tspan><tspan fill="#888">▃</tspan>
-    <tspan fill="#555" font-size="16">  80% used but resets in 40 min — no action needed</tspan>
+    <tspan fill="#555" font-size="16">  80% used, 1 out of 5 hours left — fits at this rate</tspan>
   </text>
 
   <text x="24" y="214" fill="#555" font-size="15">7-DAY WINDOW (same logic)</text>
   <text x="24" y="250">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▄</tspan><tspan fill="#fc0">▃</tspan>
-    <tspan fill="#555" font-size="16">  30% used only 1 day in — using faster than it refills</tspan>
+    <tspan fill="#555" font-size="16">  30% used, 6 out of 7 days left — could hit limit at this rate</tspan>
   </text>
   <text x="24" y="288">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▄</tspan><tspan fill="#888">▇</tspan>
-    <tspan fill="#555" font-size="16">  85% used but resets in 1 day — no action needed</tspan>
+    <tspan fill="#555" font-size="16">  85% used, 1 out of 7 days left — fits at this rate</tspan>
   </text>
 </svg>
