@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="360" font-family="Menlo,Consolas,monospace" font-size="20">
-  <rect width="820" height="360" rx="10" fill="#1e1e1e"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="440" font-family="Menlo,Consolas,monospace" font-size="20">
+  <rect width="820" height="440" rx="10" fill="#1e1e1e"/>
 
   <text x="24" y="44" fill="#555" font-size="15">5-HOUR WINDOW</text>
   <text x="24" y="80">
@@ -17,16 +17,28 @@
     <tspan fill="#888"> ▇</tspan><tspan fill="#888">▃</tspan>
     <tspan fill="#555" font-size="16">  80% used, 1 out of 5 hours left — fits at this rate</tspan>
   </text>
+  <text x="24" y="194">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#f44"> ▇</tspan><tspan fill="#888">▃</tspan>
+    <tspan fill="#555" font-size="16">  92% used — too close to limit regardless of pace</tspan>
+  </text>
 
-  <text x="24" y="214" fill="#555" font-size="15">7-DAY WINDOW (same logic)</text>
-  <text x="24" y="250">
+  <text x="24" y="252" fill="#555" font-size="15">7-DAY WINDOW (same logic)</text>
+  <text x="24" y="288">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▄</tspan><tspan fill="#fc0">▃</tspan>
     <tspan fill="#555" font-size="16">  30% used, 6 out of 7 days left — could hit limit at this rate</tspan>
   </text>
-  <text x="24" y="288">
+  <text x="24" y="326">
     <tspan fill="#888">opus ▃</tspan>
     <tspan fill="#888"> ▄</tspan><tspan fill="#888">▇</tspan>
     <tspan fill="#555" font-size="16">  85% used, 1 out of 7 days left — fits at this rate</tspan>
+  </text>
+
+  <text x="24" y="384" fill="#555" font-size="15">STALE DATA</text>
+  <text x="24" y="420">
+    <tspan fill="#888">opus ▃</tspan>
+    <tspan fill="#f44"> █</tspan><tspan fill="#888">▅</tspan>
+    <tspan fill="#555" font-size="16">  5h window reset, data stale — assume the worst</tspan>
   </text>
 </svg>
